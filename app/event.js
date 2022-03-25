@@ -1,5 +1,5 @@
 'use strict'
-
+const store = require('./store.js')
 const authUi = require('./ui.js')
 const authApi = require('./api.js')
 const getFormFields = require('../lib/get-form-fields.js')
@@ -22,6 +22,8 @@ const onSignUp = function (event) {
         .catch(() => authUi.onSignUpFailure())
 }
 
+
+
 const onSignIn = function (event) {
     event.preventDefault()
     console.log('now here')
@@ -33,8 +35,12 @@ const onSignIn = function (event) {
 
 
     // api call
+    
     authApi.signIn(data)
+
         .then((response) => authUi.onSignInSuccess(response))
+        .then(() => authApi.createGame())
+        .then((response) => { store.game = response.game.cells })
         .catch(() => authUi.onSignInFailure())
 }
 
@@ -47,15 +53,31 @@ const onSignOut = function () {
     .catch(() => authUi.onSignOutFailure())
 }
 
+
+let clicked = true
+
 const onBoxClick = function () {
-    console.log('here')
-    $(this).css('background', "red")
+  if (clicked) {
+    $(this).text('X').unbind()
+    clicked = false
+    store.game[0] = 'X'
+    console.log(store.game)
+  } else {
+    $(this).text('O').unbind()
+    clicked = true
+  }
+  console.log(authApi.gameStatus())
 }
 
+const onRestartClick = function () {
+    $('.box').text('')
+    $('.box').bind('click', onBoxClick)
+}
 
 module.exports = {
     onSignUp,
     onSignIn,
     onSignOut,
-    onBoxClick
+    onBoxClick,
+    onRestartClick
 }
