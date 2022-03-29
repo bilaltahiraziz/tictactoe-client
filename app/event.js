@@ -5,79 +5,158 @@ const authApi = require('./api.js')
 const getFormFields = require('../lib/get-form-fields.js')
 
 const onSignUp = function (event) {
-    event.preventDefault()
-    console.log('here')
+  event.preventDefault()
+  console.log('here')
 
-    // get data from form
-    const form = event.target
-    const data = getFormFields(form)
-    console.log(data)
+  // get data from form
+  const form = event.target
+  const data = getFormFields(form)
+  console.log(data)
 
-    // if (data.credentials.password !== data.credentials.password_confirmation) {
-    // }else { api call (include below)}
-
-    // api call
-    authApi.signUp(data)
-        .then(() => authUi.onSignUpSuccess())
-        .catch(() => authUi.onSignUpFailure())
+  // api call
+  authApi.signUp(data)
+    .then(() => authUi.onSignUpSuccess())
+    .catch(() => authUi.onSignUpFailure())
 }
 
-
-
 const onSignIn = function (event) {
-    event.preventDefault()
-    console.log('now here')
+  event.preventDefault()
 
-    // get data from form
-    const data = getFormFields(event.target)
-    console.log(data)
+  // get data from form
+  const data = getFormFields(event.target)
+  console.log(data)
 
+  // api call
+  authApi.signIn(data)
 
-
-    // api call
-    
-    authApi.signIn(data)
-
-        .then((response) => authUi.onSignInSuccess(response))
-        .then(() => authApi.createGame())
-        .then((response) => { store.game = response.game.cells })
-        .catch(() => authUi.onSignInFailure())
+    .then((response) => authUi.onSignInSuccess(response))
+    .then(() => authApi.createGame())
+    .then((response) => { store.game = response.game })
+    .catch(() => authUi.onSignInFailure())
 }
 
 const onSignOut = function () {
-    console.log('now here')
+  console.log('now here')
 
-    // api call
-    authApi.signOut()
+  // api call
+  authApi.signOut()
     .then(() => authUi.onSignOutSuccess())
     .catch(() => authUi.onSignOutFailure())
 }
 
+let clicked = 'x'
+let plays = 0
 
-let clicked = true
+const onBoxClick = function (event) {
+  const gameIndex = event.target.getAttribute('data-cell-index')
+  console.log('boxclicked function')
 
-const onBoxClick = function () {
-  if (clicked) {
+  authApi.playerMove(gameIndex, clicked, false)
+    // .then(() => authApi.gameStatus())
+    .then((response) => { store.game.cells = response.game.cells })
+    .then(() => checkBoard())
+    plays = plays + 1
+
+  if (clicked === 'x') {
     $(this).text('X').unbind()
-    clicked = false
-    store.game[0] = 'X'
-    console.log(store.game)
+    clicked = 'o'
+    store.game.cells[gameIndex] = "x"
+    console.log(store.game.cells)
   } else {
     $(this).text('O').unbind()
-    clicked = true
+    clicked = 'x'
+    store.game.cells[gameIndex] = "o"
+    console.log(store.game.cells)
   }
-  console.log(authApi.gameStatus())
 }
 
 const onRestartClick = function () {
-    $('.box').text('')
-    $('.box').bind('click', onBoxClick)
+  clicked = 'x'
+  $('.box').text('')
+  $('.box').unbind('click', onBoxClick)
+  $('.box').bind('click', onBoxClick)
+
+  authApi.createGame()
+    .then((response) => { store.game = response.game })
+}
+
+const checkBoard = function () {
+  // for Os win
+  if (store.game.cells[0] === 'o' && store.game.cells[1] === 'o' && store.game.cells[2] === 'o') {
+    console.log('Os Win')
+    $('#auth-display').html('<p> O WINS</p>')
+  }
+  if (store.game.cells[3] === 'o' && store.game.cells[4] === 'o' && store.game.cells[5] === 'o') {
+    console.log('Os Win')
+    $('#auth-display').html('<p>O WINS</p>')
+  }
+  if (store.game.cells[6] === 'o' && store.game.cells[7] === 'o' && store.game.cells[8] === 'o') {
+    console.log('Os Win')
+    $('#auth-display').html('<p>O WINS</p>')
+  }
+  if (store.game.cells[0] === 'o' && store.game.cells[3] === 'o' && store.game.cells[6] === 'o') {
+    console.log('Os Win')
+    $('#auth-display').html('<p>O WINS</p>')
+  }
+  if (store.game.cells[1] === 'o' && store.game.cells[4] === 'o' && store.game.cells[7] === 'o') {
+    console.log('Os Win')
+    $('#auth-display').html('<p>O WINS</p>')
+  }
+  if (store.game.cells[2] === 'o' && store.game.cells[5] === 'o' && store.game.cells[8] === 'o') {
+    console.log('Os Win')
+    $('#auth-display').html('<p>O WINS</p>')
+  }
+  if (store.game.cells[0] === 'o' && store.game.cells[4] === 'o' && store.game.cells[8] === 'o') {
+    console.log('Os Win')
+    $('#auth-display').html('<p>O WINS</p>')
+  }
+  if (store.game.cells[2] === 'o' && store.game.cells[4] === 'o' && store.game.cells[6] === 'o') {
+    console.log('Os Win')
+    $('#auth-display').html('<p>O WINS</p>')
+  }
+  // if Xs Win
+  if (store.game.cells[0] === 'x' && store.game.cells[1] === 'x' && store.game.cells[2] === 'x') {
+    console.log('Xs Win')
+    $('#auth-display').html('<p>X WINS</p>')
+  }
+  if (store.game.cells[3] === 'x' && store.game.cells[4] === 'x' && store.game.cells[5] === 'x') {
+    console.log('Xs Win')
+    $('#auth-display').html('<p>X WINS</p>')
+  }
+  if (store.game.cells[6] === 'x' && store.game.cells[7] === 'x' && store.game.cells[8] === 'x') {
+    console.log('Xs Win')
+    $('#auth-display').html('<p>X WINS</p>')
+  }
+  if (store.game.cells[0] === 'x' && store.game.cells[3] === 'x' && store.game.cells[6] === 'x') {
+    console.log('Xs Win')
+    $('#auth-display').html('<p>X WINS</p>')
+  }
+  if (store.game.cells[1] === 'x' && store.game.cells[4] === 'x' && store.game.cells[7] === 'x') {
+    console.log('Xs Win')
+    $('#auth-display').html('<p>X WINS</p>')
+  }
+  if (store.game.cells[2] === 'x' && store.game.cells[5] === 'x' && store.game.cells[8] === 'x') {
+    console.log('Xs Win')
+    $('#auth-display').html('<p>X WINS</p>')
+  }
+  if (store.game.cells[0] === 'x' && store.game.cells[4] === 'x' && store.game.cells[8] === 'x') {
+    console.log('Xs Win')
+    $('#auth-display').html('<p>X WINS</p>')
+  }
+  if (store.game.cells[2] === 'x' && store.game.cells[4] === 'x' && store.game.cells[6] === 'x') {
+    console.log('Xs Win')
+    $('#auth-display').html('<p>X WINS</p>')
+  }
+  if (plays >= 9) {
+    $('#auth-display').html('<p>TIE GAME</p>')
+  }
 }
 
 module.exports = {
-    onSignUp,
-    onSignIn,
-    onSignOut,
-    onBoxClick,
-    onRestartClick
+  onSignUp,
+  onSignIn,
+  onSignOut,
+  onBoxClick,
+  onRestartClick,
+  checkBoard
 }
