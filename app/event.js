@@ -49,10 +49,10 @@ let plays = 0
 
 const onBoxClick = function (event) {
   const gameIndex = event.target.getAttribute('data-cell-index')
-  console.log('boxclicked function')
+
 
   authApi.playerMove(gameIndex, clicked, false)
-    // .then(() => authApi.gameStatus())
+   
     .then((response) => { store.game.cells = response.game.cells })
     .then(() => checkBoard())
     plays = plays + 1
