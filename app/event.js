@@ -4,6 +4,10 @@ const authUi = require('./ui.js')
 const authApi = require('./api.js')
 const getFormFields = require('../lib/get-form-fields.js')
 
+$('#gameBoardT').hide()
+$('#sign-out-button').hide()
+$('#sign-out-display').hide()
+
 const onSignUp = function (event) {
   event.preventDefault()
   console.log('here')
@@ -37,7 +41,8 @@ const onSignIn = function (event) {
 
 const onSignOut = function () {
   console.log('now here')
-
+  $('.box').text('')
+  $('#gameBoardT').hide()
   // api call
   authApi.signOut()
     .then(() => authUi.onSignOutSuccess())

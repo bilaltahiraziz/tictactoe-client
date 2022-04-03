@@ -1,25 +1,44 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+# TIC TAC TOE / NOUGHTS AND CROSSES / X AND Os / TERNI LAPILLI
 
-# browser-template
+## History of Tic Tac Toe
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+No matter what you call it or how you spell it, Tic Tac Toe is an ancient game that billions of people have played over the course of history. While some experts believe the game dates back to the ancient Egyptians, others believe it evolved from an ancient Roman game called "Terni Lapilli". "Terni Lapilli" was played on a similar three-by-three grid. In fact, these grids can be found scratched onto all sorts of surfaces around ancient Rome. However, no markings have ever been found within the grids, leading historians to believe the game was played with movable pieces rather than by making markings, such as Xs and Os.
+
+## Introduction
+
+Thank You for visiting my version of Tic Tac Toe, unlike the original game played by Egyptians and Roman, this version will not require a sticks or stones. Just a couple peripherals and a good time. Tic Tac Toe is played on a nine-square grid created by drawing lines to create three horizontal rows and three vertical columns. With X going first, players alternate marking the squares with Xs and Os, trying to achieve three marks in a row either horizontally, vertically, or diagonally. 
+
+## How to Play the Deployed Version
+
+ ![click here](https://bilaltahiraziz.github.io/tictactoe-client/)
+
+## Installation
+
+1. To download the deployed version of Tic Tac Toe at its online location, follow the ![link](https://bilaltahiraziz.github.io/tictactoe-client/) to the Github repository.
+2. __Fork__ and __clone__ this repository.
+3. __If you would like remix this game__, you are more than welcome to initialize and create a new branch to make your very own version of Tic Tac Toe!
+4. Be sure to install dependencies with ```javascript npm install```.
+5. Running locally requires ```javascript grunt serve```.
 
 ## User Stories
 
-1. I want the user to be able to SIGN UP.
-2. I want the user to be able to SIGN IN.
-3. I want the user to be able to SIGN OUT.
-4. I want the selector to alternate between two users. 
-5. I want the user to be able to make a selection and update the current board. (UPDATE)
-6. I want the user to be displayed the status of the game. (GET)
-7. I want the user to be able to restart the game. (DELETE)
+As a user, I want to create a personal account with password security. As a user, I want to be able to reset the game as many times as I want. As a user, I want feedback of status of board while in-game. As a user, I want a game interface that looks nice and is easy to understand.
 
+## Techologies Used
+
+* HTML/CSS
+* JavaScript
+* Bootstrap
+* jQuery/Ajax/cURL
+* GitHub
+* DOM/APIs
+* JSON
 
 ## Wireframe
 
 ![Tictactoe](../tictactoe-client/tictactoe-wireframe.jpg)
 
+## About Me and the Application
 
+Thank you for checking out my very first coding project! My biggest take away from this project was the compartmentalization of the process, defining each play, they played a crucial role in planning out the structure of this application. Throughout the process, I referenced many sources of information to familiarize myself with language functions and syntax, best practices for programming, and in order to troubleshoot errors and code bugs. These sources include language documentation, error logging, Google Chrome's Developer Tools, external blogs and internet resources, as well as discussing issues with colleges.
 

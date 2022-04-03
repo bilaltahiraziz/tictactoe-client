@@ -13,7 +13,7 @@
     </head>
     <body>
       <h1>Tic Tac Toe</h1>
-
+      <div id="showHide">
       <h3>Sign Up</h3>
       <form id="sign-up-form">
         <input name="credentials[email]" type="email" placeholder="Email">
@@ -29,13 +29,14 @@
         <button type="submit">Sign In</button>
       </form>
 
-      <h3>Sign Out</h3>
+    </div>
+      <h3 id="sign-out-display">Sign Out</h3>
         <button id="sign-out-button">Sign Out</button>
 
-
+      
       <section id="auth-display"></section>
 
-
+    <div id="gameBoardT">
       <h2>TIC TAC TOE BOARD</h2>
       <div id="game-status">Game Status: </div>
       <div class="container">
@@ -50,12 +51,12 @@
           <div data-cell-index='7' type='button' id="7" class="col-4 box"></div>
           <div data-cell-index='8' type='button' id="8" class="col-4 box"></div>
         </div>
-
+      
         <div class="container">
           <div class="row">
             <button type="button" id="restart-button">RESTART BUTTON</button>
             </div>
-
+          </div>
 
       
 
