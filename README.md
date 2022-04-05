@@ -22,7 +22,7 @@ Thank You for visiting my version of Tic Tac Toe, unlike the original game playe
 
 ## User Stories
 
-As a user, I want to create a personal account with password security. As a user, I want to be able to reset the game as many times as I want. As a user, I want feedback of status of board while in-game. As a user, I want a game interface that looks nice and is easy to understand.
+As a user, I want to create a personal account with password security. As a user, I want to be able to reset the game as many times as I want. As a user, I want feedback of status of board while in-game. As a user, I want a game interface that looks nice and is easy to understand.g
 
 ## Techologies Used
 
