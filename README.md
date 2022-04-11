@@ -17,14 +17,14 @@ Thank You for visiting my version of Tic Tac Toe, unlike the original game playe
 1. To download the deployed version of Tic Tac Toe at its online location, follow the ![link](https://bilaltahiraziz.github.io/tictactoe-client/) to the Github repository.
 2. __Fork__ and __clone__ this repository.
 3. __If you would like remix this game__, you are more than welcome to initialize and create a new branch to make your very own version of Tic Tac Toe!
-4. Be sure to install dependencies with ```javascript npm install```.
-5. Running locally requires ```javascript grunt serve```.
+4. Be sure to install dependencies with ```npm install```.
+5. Running locally requires ```grunt serve```.
 
 ## User Stories
 
 As a user, I want to create a personal account with password security. As a user, I want to be able to reset the game as many times as I want. As a user, I want feedback of status of board while in-game. As a user, I want a game interface that looks nice and is easy to understand.g
 
-## Techologies Used
+## Technologies Used
 
 * HTML/CSS
 * JavaScript
