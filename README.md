@@ -36,7 +36,7 @@ As a user, I want to create a personal account with password security. As a user
 
 ## Wireframe
 
-[Tictactoe](../tictactoe-client/tictactoe-wireframe.jpg)
+[Tictactoe](https://imgur.com/a/ag4YFWs)
 
 ## About Me and the Application
 
