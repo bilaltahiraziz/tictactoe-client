@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Bilal's Tic Tac Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <h1>Tic Tac Toe</h1>
+      <div id="showHide">
+      <h3>Sign Up</h3>
+      <form id="sign-up-form">
+        <input name="credentials[email]" type="email" placeholder="Email">
+        <input name="credentials[password]" type="password" placeholder="Enter password">
+        <input name="credentials[password_confirmation]" type="password" placeholder="Enter password again">
+        <button type="submit">Sign Up</button>
+      </form>
+
+      <h3>Sign In</h3>
+      <form id="sign-in-form">
+        <input name="credentials[email]" type="email" placeholder="Email">
+        <input name="credentials[password]" type="password" placeholder="Enter password">
+        <button type="submit">Sign In</button>
+      </form>
+
+    </div>
+      <h3 id="sign-out-display">Sign Out</h3>
+        <button id="sign-out-button">Sign Out</button>
+
+      
+      <section id="auth-display"></section>
+
+    <div id="gameBoardT">
+      <h2>TIC TAC TOE BOARD</h2>
+      <div id="game-status">Game Status: </div>
+      <div class="container">
+        <div class="row">
+          <div data-cell-index='0' type='button' id="0" class="col-4 box"></div>
+          <div data-cell-index='1' type='button' id="1" class="col-4 box"></div>
+          <div data-cell-index='2' type='button' id="2" class="col-4 box"></div>
+          <div data-cell-index='3' type='button' id="3" class="col-4 box"></div>
+          <div data-cell-index='4' type='button' id="4" class="col-4 box"></div>
+          <div data-cell-index='5' type='button' id="5" class="col-4 box"></div>
+          <div data-cell-index='6' type='button' id="6" class="col-4 box"></div>
+          <div data-cell-index='7' type='button' id="7" class="col-4 box"></div>
+          <div data-cell-index='8' type='button' id="8" class="col-4 box"></div>
+        </div>
+      
+        <div class="container">
+          <div class="row">
+            <button type="button" id="restart-button">RESTART BUTTON</button>
+            </div>
+          </div>
+
+      
+
+    </body>
+</html>
